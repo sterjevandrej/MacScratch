@@ -76,7 +76,7 @@ public class Scraping {
 
             //Ovde se pecatat na konzola ama treba da go smenime da pecati vo nekoj dokument
 
-            String filePath = "example.csv";
+            String filePath = "database.csv";
             writeToCSV(database,filePath);
 
 //            for (String key : database.keySet()) {
