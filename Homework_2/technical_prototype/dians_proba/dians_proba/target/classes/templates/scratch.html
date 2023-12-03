@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scratch Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            height: 50px;
+        }
+
+        nav a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        nav a:hover {
+            color: #ddd;
+            font-size: 15px;
+        }
+
+        .container {
+            margin: auto;
+            width: 85%;
+            padding: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            background-color: #5daea1;
+            margin: 7px;
+            width: 30%;
+            height: 150px;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        li:hover {
+            background: #5adbb5;
+        }
+
+        button {
+            background-color: #5A5A5A;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease-in-out;
+            margin-left: 570px;
+            margin-top: 30px;
+        }
+
+        button:hover {
+            background-color: #3d3d3d;
+        }
+    </style>
+    <script>
+        function markAsVisited(element) {
+            element.style.backgroundColor = 'grey';
+            element.innerHTML += '<b>ПОСЕТЕНО</b>';
+        }
+    </script>
+</head>
+<body>
+<nav>
+    <a href="/home">Home</a>
+    <a href="/about-us">About Us</a>
+    <a href="/login">Login</a>
+    <a href="/signup">Sign up</a>
+    <a href="/scratch">Scratch</a>
+</nav>
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+    <section class="">
+        <div>
+            <ul>
+                <li th:each="monument: ${monuments}" onclick="markAsVisited(this)">
+<!--                    <input type="checkbox" th:id="${monument.getName()}">-->
+                    <label th:for="${monument.getName()}" th:text="${monument.getName()}"></label>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <a href="/home"><button id="homeButton">Home</button></a>
+</div>
+</body>
+</html>
