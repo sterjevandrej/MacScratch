@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User register(String username, String password, String repeatPassword, String name, String surname) {
+    public void register(String username, String password, String repeatPassword, String name, String surname) {
         if (username==null || username.isEmpty()  || password==null || password.isEmpty())
             throw new InvalidUsernameOrPasswordException();
         if (!password.equals(repeatPassword))
@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
         if(this.userRepository.findByUsername(username).isPresent())
             throw new UsernameAlreadyExistsException(username);
         User user = new User(name,surname,username,password);
-        return userRepository.saveOrUpdate(user);
+        userRepository.saveOrUpdate(user);
     }
 
     @Override
@@ -57,4 +57,20 @@ public class UserServiceImpl implements UserService {
         Monument monument = monumentRepostory.findByName(name).get();
         userRepository.addToFavorites(username, monument);
     }
+
+//    @Override
+//    public void listWishList() {
+//        return userRepository.;
+//    }
+//
+//    @Override
+//    public void listVisited() {
+//
+//    }
+//
+//    @Override
+//    public void listFavourites() {
+//
+//    }
+
 }

@@ -14,10 +14,9 @@ public class UserRepository {
         return DataHolder.users.stream().filter(r->r.getUsername().equals(username)).findFirst();
     }
 
-    public User saveOrUpdate(User user) {
+    public void saveOrUpdate(User user) { // From 'public User' to 'public void' and removed return user;
         DataHolder.users.removeIf(r->r.getUsername().equals(user.getUsername()));
         DataHolder.users.add(user);
-        return user;
     }
 
     public Optional<User> findByUsernameAndPassword(String username, String password) {
@@ -38,5 +37,15 @@ public class UserRepository {
         User user = this.findByUsername(username).get();
         user.getFavouritePlaces().add(monument);
         System.out.println("Fav list: "+ user.getFavouritePlaces());
+    }
+
+    public void listVisited(){
+
+    }
+    public void listFavourites(){
+
+    }
+    public void listWishList(){
+
     }
 }

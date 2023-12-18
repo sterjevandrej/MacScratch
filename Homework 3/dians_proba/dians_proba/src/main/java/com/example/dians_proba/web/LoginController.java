@@ -37,7 +37,7 @@ public class LoginController {
         catch (InvalidUserCredentialsException exception) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", exception.getMessage());
-            model.addAttribute("bodyContent", "login_1");
+            model.addAttribute("bodyContent", "invalidPage");
             return "master_template";
         }
     }
