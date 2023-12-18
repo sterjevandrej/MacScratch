@@ -2,6 +2,7 @@ package com.example.dians_proba.web;
 
 import com.example.dians_proba.model.exceptions.InvalidArgumentsException;
 import com.example.dians_proba.model.exceptions.PasswordsDoNotMatchException;
+import com.example.dians_proba.model.exceptions.UsernameAlreadyExistsException;
 import com.example.dians_proba.service.AuthService;
 import com.example.dians_proba.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -35,12 +36,15 @@ public class SignUpController {
                            @RequestParam String password,
                            @RequestParam String repeatedPassword,
                            @RequestParam String name,
-                           @RequestParam String surname) {
+                           @RequestParam String surname, Model model) {
         try{
             this.userService.register(username, password, repeatedPassword, name, surname);
             return "redirect:/login";
-        } catch (InvalidArgumentsException | PasswordsDoNotMatchException exception) {
-            return "redirect:/register?error=" + exception.getMessage();
+        } catch (InvalidArgumentsException | PasswordsDoNotMatchException | UsernameAlreadyExistsException exception) {
+            model.addAttribute("bodyContent","signup");
+            model.addAttribute("hasError", true);
+            model.addAttribute("error", exception.getMessage());
+            return "master_template";
         }
     }
 }

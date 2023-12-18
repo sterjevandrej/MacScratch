@@ -37,7 +37,8 @@ public class LoginController {
         catch (InvalidUserCredentialsException exception) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", exception.getMessage());
-            return "redirect:/home"; //TO DO: IMPLEMENT NEW REDIRECT PAGE
+            model.addAttribute("bodyContent", "login_1");
+            return "master_template";
         }
     }
 }
