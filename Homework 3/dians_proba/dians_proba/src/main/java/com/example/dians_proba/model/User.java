@@ -1,9 +1,6 @@
 package com.example.dians_proba.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,11 +22,11 @@ public class User {
     private String feedback;
     private boolean isSatisfied;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Monument> visitedPlaces;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Monument> wishList;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Monument> favouritePlaces;
 
     public User(String name, String surname, String username, String password) {

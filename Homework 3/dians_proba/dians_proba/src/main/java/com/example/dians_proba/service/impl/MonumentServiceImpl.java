@@ -16,6 +16,6 @@ public class MonumentServiceImpl implements MonumentService {
     }
     @Override
     public List<Monument> listAllMonumentsSine() {
-        return monumentRepostory.listAllMonuments();
+        return monumentRepostory.findAll();
     }
 }

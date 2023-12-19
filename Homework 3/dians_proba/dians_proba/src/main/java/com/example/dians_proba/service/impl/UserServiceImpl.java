@@ -3,6 +3,7 @@ package com.example.dians_proba.service.impl;
 import com.example.dians_proba.model.Monument;
 import com.example.dians_proba.model.User;
 import com.example.dians_proba.model.exceptions.InvalidUsernameOrPasswordException;
+import com.example.dians_proba.model.exceptions.NotLoggedInException;
 import com.example.dians_proba.model.exceptions.PasswordsDoNotMatchException;
 import com.example.dians_proba.model.exceptions.UsernameAlreadyExistsException;
 import com.example.dians_proba.repository.MonumentRepository;
@@ -32,45 +33,47 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void register(String username, String password, String repeatPassword, String name, String surname) {
-        if (username==null || username.isEmpty()  || password==null || password.isEmpty())
+        if (username == null || username.isEmpty() || password == null || password.isEmpty())
             throw new InvalidUsernameOrPasswordException();
         if (!password.equals(repeatPassword))
             throw new PasswordsDoNotMatchException();
-        if(this.userRepository.findByUsername(username).isPresent())
+        if (this.userRepository.findByUsername(username).isPresent())
             throw new UsernameAlreadyExistsException(username);
-        User user = new User(name,surname,username,password);
-        userRepository.saveOrUpdate(user);
+        User user = new User(name, surname, username, password);
+        userRepository.save(user);
     }
 
     @Override
     public void addWishList(String username, String name) {
-        Monument monument = monumentRepostory.findByName(name).get();
-        userRepository.addWishList(username, monument);
-    }
-    @Override
-    public void addToVisited(String username, String name) {
-        Monument monument = monumentRepostory.findByName(name).get();
-        userRepository.addToVisited(username, monument);
-    }
-    @Override
-    public void addToFavorites(String username, String name) {
-        Monument monument = monumentRepostory.findByName(name).get();
-        userRepository.addToFavorites(username, monument);
+        Monument monument = monumentRepostory.findByName(name);
+        Optional<User> user = userRepository.findByUsername(username);
+        if (user.isPresent()) {
+            user.get().getWishList().add(monument);
+        } else {
+            throw new NotLoggedInException();
+        }
     }
 
-//    @Override
-//    public void listWishList() {
-//        return userRepository.;
-//    }
-//
-//    @Override
-//    public void listVisited() {
-//
-//    }
-//
-//    @Override
-//    public void listFavourites() {
-//
-//    }
+    @Override
+    public void addToVisited(String username, String name) {
+        Monument monument = monumentRepostory.findByName(name);
+        Optional<User> user = userRepository.findByUsername(username);
+        if (user.isPresent()) {
+            user.get().getVisitedPlaces().add(monument);
+        } else {
+            throw new NotLoggedInException();
+        }
+    }
+
+    @Override
+    public void addToFavorites(String username, String name) {
+        Monument monument = monumentRepostory.findByName(name);
+        Optional<User> user = userRepository.findByUsername(username);
+        if (user.isPresent()) {
+            user.get().getFavouritePlaces().add(monument);
+        } else {
+            throw new NotLoggedInException();
+        }
+    }
 
 }

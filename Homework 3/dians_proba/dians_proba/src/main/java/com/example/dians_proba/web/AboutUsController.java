@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/about-us")
 public class AboutUsController {
     @GetMapping
-    public String getAboutUsPage(Model model){
+    public String getAboutUsPage(Model model) {
         model.addAttribute("bodyContent", "about");
         return "master_template";
     }
