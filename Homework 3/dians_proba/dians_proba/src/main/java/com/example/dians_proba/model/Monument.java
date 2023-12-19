@@ -3,7 +3,9 @@ package com.example.dians_proba.model;
 import lombok.Data;
 
 @Data
+
 public class Monument {
+    String id;
     String name;
     String enName;
     String religion;
@@ -11,7 +13,7 @@ public class Monument {
     String opening_hours;
     String phone;
     String email;
-    String id;
+
     String lat;
     String lon;
 
