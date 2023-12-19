@@ -1,22 +1,35 @@
 package com.example.dians_proba.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Entity
+@Table(name = "users")
+@NoArgsConstructor
 public class User {
+    @Id
+    private String username;
     private String name;
     private String surname;
-    private String username;
+
     private String password;
 
     private String feedback;
     private boolean isSatisfied;
 
+    @OneToMany
     private List<Monument> visitedPlaces;
+    @OneToMany
     private List<Monument> wishList;
+    @OneToMany
     private List<Monument> favouritePlaces;
 
     public User(String name, String surname, String username, String password) {

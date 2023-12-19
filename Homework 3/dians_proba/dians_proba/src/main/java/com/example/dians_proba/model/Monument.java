@@ -1,24 +1,33 @@
 package com.example.dians_proba.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-
+@Entity
+@NoArgsConstructor
 public class Monument {
-    String id;
-    String name;
-    String enName;
-    String religion;
-    String website;
-    String opening_hours;
-    String phone;
-    String email;
 
-    String lat;
-    String lon;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String enName;
+    private String religion;
+    private String website;
+    private String opening_hours;
+    private String phone;
+    private String email;
+
+    private String lat;
+    private String lon;
 
     public Monument(String name, String enName, String religion, String website,
-                    String opening_hours, String phone, String email, String id, String lat, String lon) {
+                    String opening_hours, String phone, String email, String lat, String lon) {
         this.name = name;
         this.enName = enName;
         this.religion = religion;
@@ -26,7 +35,6 @@ public class Monument {
         this.opening_hours = opening_hours;
         this.phone = phone;
         this.email = email;
-        this.id = id;
         this.lat = lat;
         this.lon = lon;
     }
