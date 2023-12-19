@@ -31,16 +31,35 @@
                     <a class="nav-link active navbar-a" href="/about-us">About us</a>
                 </li>
                 <li class="nav-item m-auto">
-                    <a class="nav-link active navbar-a" href="/login">Login</a>
-                </li>
-                <li class="nav-item m-auto">
-                    <a class="nav-link active navbar-a" href="/signup">Sign up</a>
-                </li>
-                <li class="nav-item m-auto">
                     <a class="nav-link active navbar-a" href="/scratch">Scratch</a>
                 </li>
+                <li class="nav-item m-auto" th:if="${session.user == null}">
+                    <a class="nav-link active navbar-a" href="/login">Login</a>
+                </li>
+                <li class="nav-item m-auto" th:if="${session.user == null}">
+                    <a class="nav-link active navbar-a" href="/signup">Sign up</a>
+                </li>
+                <li class="nav-item" th:if="${session.user != null}">
+                    <a class="btn btn-light btn-sm ml-3" href="/logout">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </a>
+                </li>
+                <li class="nav-item" th:if="${session.user != null}">
+
+                        <i id="welcome" class="fa-solid fa-right-from-bracket" th:text="${session.user.getName()} + ' ' + ${session.user.getSurname()}"></i>
+
+                </li>
             </ul>
+
+
         </div>
+
+<!--        <div id="welcome" class="nav-item" th:if="${session.user != null}" th:text="'Welcome, ' + ${session.user.getName()}"></div>-->
+<!--        <div class="nav-item" th:if="${session.user != null}">-->
+<!--            <a class="btn btn-light btn-sm ml-3" href="/logout">-->
+<!--                <i class="fa-solid fa-right-from-bracket"></i> Logout-->
+<!--            </a>-->
+<!--        </div>-->
     </div>
 </nav>
 </body>

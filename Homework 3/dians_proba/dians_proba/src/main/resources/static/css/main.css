@@ -77,3 +77,10 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+#welcome{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 5px;
+}
