@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+<<<<<<< HEAD
 @IdClass(VisitedId.class)
 @NoArgsConstructor
 public class Visited {
@@ -14,6 +15,17 @@ public class Visited {
     private User user;
 
     @Id
+=======
+@NoArgsConstructor
+public class Visited {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    private User user;
+
+>>>>>>> 6ceb915b81221ff898b9ac081bbc2722c762404a
     @ManyToOne
     private Monument monument;
 

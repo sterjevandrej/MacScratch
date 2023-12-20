@@ -23,11 +23,11 @@ public class SignUpController {
 
     @GetMapping
     public String getSignUpPage(@RequestParam(required = false) String error, Model model) {
-        if(error != null && !error.isEmpty()) {
+        if (error != null && !error.isEmpty()) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", error);
         }
-        model.addAttribute("bodyContent","signup");
+        model.addAttribute("bodyContent", "signup");
         return "master_template";
     }
 
@@ -37,11 +37,11 @@ public class SignUpController {
                            @RequestParam String repeatedPassword,
                            @RequestParam String name,
                            @RequestParam String surname, Model model) {
-        try{
+        try {
             this.userService.register(username, password, repeatedPassword, name, surname);
             return "redirect:/login";
         } catch (InvalidArgumentsException | PasswordsDoNotMatchException | UsernameAlreadyExistsException exception) {
-            model.addAttribute("bodyContent","invalidPage");
+            model.addAttribute("bodyContent", "invalidPage");
             model.addAttribute("hasError", true);
             model.addAttribute("error", exception.getMessage());
             return "master_template";
