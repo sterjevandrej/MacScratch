@@ -12,6 +12,7 @@ import com.example.dians_proba.service.UserService;
 import org.springframework.stereotype.Service;
 //import org.springframework.security.crypto.password.PasswordEncoder; //NOT REALLY NECESSARY1
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -49,6 +50,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> user = userRepository.findByUsername(username);
         if (user.isPresent()) {
             user.get().getWishList().add(monument);
+//            System.out.println(user.get().getWishList());
         } else {
             throw new NotLoggedInException();
         }
@@ -74,6 +76,24 @@ public class UserServiceImpl implements UserService {
         } else {
             throw new NotLoggedInException();
         }
+    }
+
+    @Override
+    public List<Monument> getWishList(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
+        return user.get().getWishList();
+    }
+
+    @Override
+    public List<Monument> getVisitedList(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
+        return user.get().getVisitedPlaces();
+    }
+
+    @Override
+    public List<Monument> getFavouritesList(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
+        return user.get().getFavouritePlaces();
     }
 
 }
