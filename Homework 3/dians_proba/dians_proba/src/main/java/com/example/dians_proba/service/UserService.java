@@ -10,14 +10,4 @@ public interface UserService {
     Optional<User> findByUsername(String username);
 
     void register(String username, String password, String repeatPassword, String name, String surname);
-
-    void addWishList(String username, String name);
-
-    void addToVisited(String username, String name);
-
-    void addToFavorites(String username, String name);
-
-    List<Monument> getWishList(String username);
-    List<Monument> getVisitedList(String username);
-    List<Monument> getFavouritesList(String username);
 }

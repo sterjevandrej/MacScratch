@@ -1,9 +1,7 @@
 package com.example.dians_proba.web;
 
 import com.example.dians_proba.model.User;
-import com.example.dians_proba.model.exceptions.NotLoggedInException;
-import com.example.dians_proba.service.MonumentService;
-import com.example.dians_proba.service.UserService;
+import com.example.dians_proba.service.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ScratchController {
     private final MonumentService monumentService;
     private final UserService userService;
+    private final WishService wishService;
+    private final VisitedService visitedService;
+    private final FavoritesService favoritesService;
 
-    public ScratchController(MonumentService monumentService, UserService userService) {
+    public ScratchController(MonumentService monumentService, UserService userService, WishService wishService, VisitedService visitedService, FavoritesService favoritesService) {
         this.monumentService = monumentService;
         this.userService = userService;
+        this.wishService = wishService;
+        this.visitedService = visitedService;
+        this.favoritesService = favoritesService;
     }
 
     @GetMapping
@@ -34,7 +38,7 @@ public class ScratchController {
     public String addToWishList(@PathVariable String name, Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if (user != null) {
-            userService.addWishList(user.getUsername(), name);
+            wishService.addToWishList(user.getUsername(), name);
             return "redirect:/scratch";
         } else {
             return "redirect:/login";
@@ -45,7 +49,7 @@ public class ScratchController {
     public String addToVisited(@PathVariable String name, Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if (user != null) {
-            userService.addToVisited(user.getUsername(), name);
+            visitedService.addToVisitedList(user.getUsername(), name);
             return "redirect:/scratch";
         } else {
             return "redirect:/login";
@@ -56,7 +60,7 @@ public class ScratchController {
     public String addToFavorites(@PathVariable String name, Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if (user != null) {
-            userService.addToFavorites(user.getUsername(), name);
+            favoritesService.addToFavoritesList(user.getUsername(), name);
             return "redirect:/scratch";
         } else {
             return "redirect:/login";
