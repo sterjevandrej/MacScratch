@@ -9,6 +9,7 @@ import com.example.dians_proba.model.exceptions.UsernameAlreadyExistsException;
 import com.example.dians_proba.repository.MonumentRepository;
 import com.example.dians_proba.repository.UserRepository;
 import com.example.dians_proba.service.UserService;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 //import org.springframework.security.crypto.password.PasswordEncoder; //NOT REALLY NECESSARY1
 
@@ -44,18 +45,19 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    @Transactional
     @Override
     public void addWishList(String username, String name) {
         Monument monument = monumentRepostory.findByName(name);
         Optional<User> user = userRepository.findByUsername(username);
         if (user.isPresent()) {
             user.get().getWishList().add(monument);
-//            System.out.println(user.get().getWishList());
         } else {
             throw new NotLoggedInException();
         }
     }
 
+    @Transactional
     @Override
     public void addToVisited(String username, String name) {
         Monument monument = monumentRepostory.findByName(name);
@@ -67,6 +69,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Transactional
     @Override
     public void addToFavorites(String username, String name) {
         Monument monument = monumentRepostory.findByName(name);
