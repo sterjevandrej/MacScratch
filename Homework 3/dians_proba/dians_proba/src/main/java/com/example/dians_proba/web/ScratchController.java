@@ -14,14 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/scratch")
 public class ScratchController {
     private final MonumentService monumentService;
-    private final UserService userService;
     private final WishService wishService;
     private final VisitedService visitedService;
     private final FavoritesService favoritesService;
 
     public ScratchController(MonumentService monumentService, UserService userService, WishService wishService, VisitedService visitedService, FavoritesService favoritesService) {
         this.monumentService = monumentService;
-        this.userService = userService;
         this.wishService = wishService;
         this.visitedService = visitedService;
         this.favoritesService = favoritesService;

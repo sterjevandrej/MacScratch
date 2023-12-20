@@ -40,17 +40,17 @@
                     <a class="nav-link active navbar-a" href="/signup">Sign up</a>
                 </li>
                 <li class="nav-item" th:if="${session.user != null}">
-                    <a class="btn btn-light btn-sm ml-3" href="/logout">
+                    <a class="nav-link active navbar-a" href="/logout"> <!-- btn btn-info btn-sm ml-3 -->
                         <i class="fa-solid fa-right-from-bracket"></i> Logout
                     </a>
                 </li>
+                <li class="nav-item m-auto">
+                    <a class="nav-link active navbar-a" href="/map">Map</a>
+                </li>
                 <li class="nav-item" th:if="${session.user != null}">
-
-                        <i id="welcome" class="fa-solid fa-right-from-bracket" th:text="${session.user.getName()} + ' ' + ${session.user.getSurname()}"></i>
-
+                        <i id="welcome" class="nav-link active navbar-a" th:text="${session.user.getName()} + ' ' + ${session.user.getSurname()}"></i>
                 </li>
             </ul>
-
 
         </div>
 
