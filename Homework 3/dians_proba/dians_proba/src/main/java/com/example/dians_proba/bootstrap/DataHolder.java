@@ -13,20 +13,6 @@ public class DataHolder {
     public static List<Monument> monuments = null;
     public static List<User> users = null;
 
-<<<<<<< HEAD
-    @PostConstruct
-    public void init() {
-        monuments = new ArrayList<>();
-        users = new ArrayList<>();
-        monuments.add(new Monument("Манастир Света Петка", "Saint Petka Monastery","4485913838", "41.1291432"));
-        monuments.add(new Monument("Музеј на град Берово", "Berovo Town Museum","478699817", "41.7077548"));
-        monuments.add(new Monument("Саат-кула",null, "42.0792053",null));
-        monuments.add(new Monument("Невена Георгиева-Дуња", null,"41.993726",null));
-        monuments.add(new Monument("Свети Спас",null,"41.0207827",null));
-        monuments.add(new Monument("Пресвета Богородица",null,"42.0719506",null));
-        users.add(new User("Ana", "Banana", "anabanana", "123456"));
-    }
-=======
 //    @PostConstruct
 //    public void init() {
 //        monuments = new ArrayList<>();
@@ -39,6 +25,5 @@ public class DataHolder {
 //        monuments.add(new Monument("Пресвета Богородица", null, "Христијанство", null, null, null, null, "42.0719506", null));
 //        users.add(new User("Ana", "Banana", "anabanana", "123456"));
 //    }
->>>>>>> 6ceb915b81221ff898b9ac081bbc2722c762404a
 
 }

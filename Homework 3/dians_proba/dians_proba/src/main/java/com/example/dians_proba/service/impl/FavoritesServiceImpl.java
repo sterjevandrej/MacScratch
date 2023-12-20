@@ -32,6 +32,7 @@ public class FavoritesServiceImpl implements FavoritesService {
         Monument monument = monumentRepository.findByName(name);
         Favorite favorite = new Favorite(user, monument);
         //if(monument does not exist in wishRepo)
+//        if(favoriteRepository.findByMonument(monument).isEmpty())
         favoriteRepository.save(favorite);
     }
 

@@ -30,8 +30,8 @@ public class WishServiceImpl implements WishService {
         Monument monument = monumentRepository.findByName(name);
         Wish wish = new Wish(user, monument);
         //if(monument does not exist in wishRepo)
+//        if(wishRepository.findByMonument(monument).isEmpty())
         wishRepository.save(wish);
-
     }
 
     @Override

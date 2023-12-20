@@ -5,6 +5,7 @@ import com.example.dians_proba.repository.MonumentRepository;
 import com.example.dians_proba.repository.UserRepository;
 import com.example.dians_proba.repository.VisitedRepository;
 import com.example.dians_proba.service.VisitedService;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,12 +23,14 @@ public class VisitedServiceImpl implements VisitedService {
         this.visitedRepository = visitedRepository;
     }
 
+    @Transactional
     @Override
     public void addToVisitedList(String username, String name) {
         User user = userRepository.findByUsername(username).orElse(null);
         Monument monument = monumentRepository.findByName(name);
         Visited visited = new Visited(user, monument);
         //if(monument does not exist in visitedRepository)
+//        if(visitedRepository.findByMonument(monument).isEmpty())
         visitedRepository.save(visited);
     }
 
