@@ -23,9 +23,11 @@ public class FeedbackController {
     }
 
     @PostMapping("/{username}")
-    public String addFeedbackAndSatisfied (@PathVariable String username, @RequestParam String feedback, @RequestParam Boolean satisfied) {
-        userService.setFeedbackAndSatisfied(username, feedback, satisfied);
-        return "redirect://scratch";
+    public String addFeedbackAndSatisfied (@PathVariable String username, @RequestParam String feedback, @RequestParam String satisfied) {
+        boolean bool;
+        bool= satisfied.equals("satisfied");
+        userService.setFeedbackAndSatisfied(username, feedback, bool);
+        return "redirect:/home";
     }
 
 }
