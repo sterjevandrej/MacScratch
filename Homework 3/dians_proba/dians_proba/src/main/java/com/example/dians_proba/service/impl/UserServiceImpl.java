@@ -44,4 +44,11 @@ public class UserServiceImpl implements UserService {
         User user = new User(name, surname, username, password);
         userRepository.save(user);
     }
+    @Override
+    public void setFeedbackAndSatisfied (String username, String feedback, Boolean satisfied) {
+        User user = userRepository.findByUsername(username).get();
+        user.setFeedback(feedback);
+        user.setSatisfied(satisfied);
+        userRepository.save(user);
+    }
 }
