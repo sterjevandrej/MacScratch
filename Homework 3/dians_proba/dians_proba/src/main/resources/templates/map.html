@@ -54,3 +54,36 @@
 <!--</body>-->
 <!--</html>-->
 <div>MAP</div>
+<!--<button onclick="getLocation()">Get Location</button>-->
+
+
+<script>
+    // Check if the function has already been called in the current session
+    const hasLocationBeenFetched = sessionStorage.getItem('hasLocationBeenFetched');
+
+    // If not, call the getLocation function
+    if (!hasLocationBeenFetched) {
+        window.onload = function() {
+            getLocation();
+        };
+    }
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        // Send the location to your Spring Controller
+        window.location.href = `/getLocation?latitude=${latitude}&longitude=${longitude}`;
+
+        // Set a flag in sessionStorage indicating that the location has been fetched
+        sessionStorage.setItem('hasLocationBeenFetched', true);
+    }
+</script>
