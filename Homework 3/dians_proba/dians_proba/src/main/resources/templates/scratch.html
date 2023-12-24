@@ -14,7 +14,7 @@
                             </button>
                         </form>
                         <form th:action="@{'/scratch/visited/{name}' (name=${monument.getName()})}" method="POST">
-                            <span onclick="markAsVisited(this)"><button type="submit" class="btn btn-sm btn-outline-secondary scratch-button">Visited
+                            <span><button type="submit" class="btn btn-sm btn-outline-secondary scratch-button">Visited
                             </button></span>
                         </form>
                         <form th:action="@{'/scratch/favorites/{name}' (name=${monument.getName()})}" method="POST">

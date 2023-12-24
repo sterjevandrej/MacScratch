@@ -9,13 +9,26 @@ import java.util.List;
 
 @Service
 public class MonumentServiceImpl implements MonumentService {
-    public final MonumentRepository monumentRepostory;
+    public final MonumentRepository monumentRepository;
 
-    public MonumentServiceImpl(MonumentRepository monumentRepostory) {
-        this.monumentRepostory = monumentRepostory;
+    public MonumentServiceImpl(MonumentRepository monumentRepository) {
+        this.monumentRepository = monumentRepository;
     }
     @Override
     public List<Monument> listAllMonumentsSine() {
-        return monumentRepostory.findAll();
+        return monumentRepository.findAll();
     }
+
+    @Override
+    public Monument findMonumentByName(String name) {
+        return monumentRepository.findByName(name);
+    }
+    @Override
+    public List<Monument> findAllMonumentsByName(String name) {
+        return monumentRepository.findMonumentsByName(name);
+    }
+
+    public List<Monument> findMonumentByLatitudeAndLongitude(String lat, String lon) {
+        return monumentRepository.findByLatLikeAndLonLike(lat, lon);
+    };
 }

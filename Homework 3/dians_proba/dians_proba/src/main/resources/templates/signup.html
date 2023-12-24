@@ -18,5 +18,9 @@
     <button class="btn btn-lg btn-primary btn-block btn-login-signup" type="submit">Sign up</button>
 
     <a href="/login" id="login-link" class="linkLoginSignup">Already registered? Login!</a>
+
+    <div style="color: red">
+      <span th:if="${hasError}" th:text="${error}"></span>
+    </div>
   </form>
 </div>

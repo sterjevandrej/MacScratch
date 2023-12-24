@@ -26,13 +26,4 @@ public class DataHolder {
 //        users.add(new User("Ana", "Banana", "anabanana", "123456"));
 //    }
 
-
-//    INSERT INTO MONUMENT (name, en_name, religion, website, opening_hours, phone, email, lat, lon)
-//    VALUES ('Манастир Света Петка', 'Saint Petka Monastery', 'Hristijanstvo', NULL, NULL, NULL, NULL, '4485913838', '41.1291432')
-//    VALUES ('Музеј на град Берово', 'Berovo Town Museum', NULL, 'http://www.berovo.gov.mk/index.php?option=com_content&view=article&id=76&Itemid=117', NULL, NULL, NULL, '478699817', '41.7077548')
-//    VALUES ('Саат-кула', 'Clock Tower', NULL, NULL, NULL, NULL, NULL, '42.0792053', NULL)
-//    VALUES ('Невена Георгиева-Дуња', NULL, NULL, NULL, NULL, NULL, NULL, '41.993726', NULL)
-//    VALUES ('Свети Спас', 'Sveti Spas', 'Христијанство', NULL, NULL, NULL, NULL, '41.0207827', NULL)
-//    VALUES ('Пресвета Богородица', NULL, 'Христијанство', NULL, NULL, NULL, NULL, '42.0719506', NULL)
-
 }

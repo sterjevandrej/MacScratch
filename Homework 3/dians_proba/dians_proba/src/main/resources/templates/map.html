@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenStreetMap with Leaflet</title>
+    <title>Macedonia Map</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -33,35 +33,70 @@
             position: absolute;
             top: 90px;
             left: 10px;
-            z-index: 1000; /* Ensure it appears above map controls */
+            z-index: 1000;
+        }
+        #map-nav{
+            position: absolute;
+            right: 20px;
+            top: 1px;
+            z-index: 1000;
+            text-align: right;
+        }
+        #map-nav-2{
+            position: absolute;
+            right: 20px;
+            top: 120px;
+            z-index: 1000;
+            text-align: right;
         }
     </style>
 </head>
 <body>
-
+<div id="map-nav">
+    <form>
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <label for="searchText"></label>
+                <input type="text" class="form-control mb-2" id="searchText" placeholder="Search Monument..." name="search">
+                <button type="button" onclick="searchMonument()" class="btn btn-primary mb-2">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="map-nav-2">
+    <form>
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <label for="searchByCity"></label>
+                <input id="searchByCity" type="text" class="form-control mb-2" placeholder="Search by City..." name="searchByCity">
+                <button type="button" class="btn btn-primary mb-2" onclick="zoomOnCity()">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
 <div id="home-button">
     <a href="/home">
-        <button class="btn btn-dark btn-sm" >Home</button>
+        <button class="btn btn-dark">Home</button>
     </a>
 </div>
+
+<!-- MAP -->
 <div id="map"></div>
 
-<!-- Include Leaflet JavaScript -->
+<!-- Leaflet JavaScript -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<!-- Include Leaflet Control Geocoder JavaScript -->
+<!-- Leaflet Control Geocoder JavaScript -->
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 
 <script>
-    //     Add Map
-
+    // Add Map
     var mymap = L.map('map').setView([41.6086, 21.7453], 8.5); // Centered over Macedonia
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(mymap);
 
-    //     Add Markers
-
+    // Add Markers
     let mapMarkers = {};
     fetch("http://localhost:8080/api/GetMarkers")
         .then(response => {
@@ -77,42 +112,66 @@
                 const monument = data[key]
                 let marker = L.marker([monument.lat, monument.lon], {}).addTo(mymap);
                 marker.bindPopup(`<strong>${monument.name}</strong><br>Phone: ${monument.phone}`);
-            }})
+            }
+        })
         .catch(error => {
             console.error("Couldn't get the map markers:", error);
         });
-</script>
 
-<script>
-    // Check if the function has already been called in the current session
-    const hasLocationBeenFetched = sessionStorage.getItem('hasLocationBeenFetched');
+//     Search Monument
+    function searchMonument() {
+        const searchText = document.getElementById('searchText').value.toLowerCase();
 
-    // If not, call the getLocation function
-    if (!hasLocationBeenFetched) {
-        window.onload = function() {
-            getLocation();
-        };
-    }
+        const matchingMonument = Object.values(mapMarkers).find(monument =>
+            monument.name.toLowerCase().includes(searchText)
+        );
 
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+        if (matchingMonument) {
+            mymap.setView([matchingMonument.lat, matchingMonument.lon], 13);
         } else {
-            alert("Geolocation is not supported by this browser.");
+            alert("Monument not found");
         }
     }
 
-    function showPosition(position) {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
+// Search by City Name
+    let cityMarkers = {};
 
-        // Send the location to your Spring Controller
-        window.location.href = `/getLocation?latitude=${latitude}&longitude=${longitude}`;
+    // Fetch city data from the API
+    fetch("http://localhost:8080/api/GetCities")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            cityMarkers = data;
 
-        // Set a flag in sessionStorage indicating that the location has been fetched
-        sessionStorage.setItem('hasLocationBeenFetched', true);
+            for (let key in data) {
+                const city = data[key];
+                // let marker = L.marker([city.lat, city.lon], {}).addTo(mymap);
+                // marker.bindPopup(`<strong>${city.name}</strong><br>Population: ${city.population}`);
+            }
+        })
+        .catch(error => {
+            console.error("Couldn't get the cities:", error);
+        });
+
+    // Search City
+    function zoomOnCity() {
+        const searchText = document.getElementById('searchByCity').value.toLowerCase();
+
+        const matchingCity = Object.values(cityMarkers).find(city =>
+            city.name.toLowerCase().includes(searchText)
+        );
+
+        if (matchingCity) {
+            mymap.setView([matchingCity.lat, matchingCity.lon], 13);
+        } else {
+            alert("City not found");
+        }
     }
+
 </script>
 </body>
 </html>
-<!--<button onclick="getLocation()">Get Location</button>-->

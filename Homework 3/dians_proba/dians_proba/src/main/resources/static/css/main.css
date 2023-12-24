@@ -86,7 +86,22 @@
 }
 
 /* Map */
-/*body, html, #map {*/
-/*    height: 100%;*/
-/*    margin: 0;*/
-/*}*/
+/* Set the map container to cover the entire screen */
+body, html, #map {
+    height: 100%;
+    margin: 0;
+}
+
+/* Styles for the search control */
+.leaflet-control-geocoder {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/* Feedback */
+.feedback-div {
+    width: 200px;
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 50px;
+}

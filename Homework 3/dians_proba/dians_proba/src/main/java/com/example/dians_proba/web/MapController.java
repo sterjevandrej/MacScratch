@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/map")
 public class MapController {
     @GetMapping
-    public String getMapPage(Model model) {
-        model.addAttribute("bodyContent", "map");
-        return "master_template";
+    public String getMapPage() {
+        return "map";
     }
 }

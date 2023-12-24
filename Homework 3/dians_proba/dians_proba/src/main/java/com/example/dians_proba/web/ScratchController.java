@@ -1,14 +1,14 @@
 package com.example.dians_proba.web;
 
+import com.example.dians_proba.model.Monument;
 import com.example.dians_proba.model.User;
 import com.example.dians_proba.service.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/scratch")
@@ -18,7 +18,7 @@ public class ScratchController {
     private final VisitedService visitedService;
     private final FavoritesService favoritesService;
 
-    public ScratchController(MonumentService monumentService, UserService userService, WishService wishService, VisitedService visitedService, FavoritesService favoritesService) {
+    public ScratchController(MonumentService monumentService, WishService wishService, VisitedService visitedService, FavoritesService favoritesService) {
         this.monumentService = monumentService;
         this.wishService = wishService;
         this.visitedService = visitedService;

@@ -41,9 +41,9 @@ public class SignUpController {
             this.userService.register(username, password, repeatedPassword, name, surname);
             return "redirect:/login";
         } catch (InvalidArgumentsException | PasswordsDoNotMatchException | UsernameAlreadyExistsException exception) {
-            model.addAttribute("bodyContent", "invalidPage");
             model.addAttribute("hasError", true);
             model.addAttribute("error", exception.getMessage());
+            model.addAttribute("bodyContent", "signup");
             return "master_template";
         }
     }
