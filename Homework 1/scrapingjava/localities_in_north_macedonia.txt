@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.61.5 4133829e",
   "osm3s": {
-    "timestamp_osm_base": "2023-11-12T21:26:44Z",
-    "timestamp_areas_base": "2023-11-12T19:27:45Z",
+    "timestamp_osm_base": "2023-12-24T19:56:40Z",
+    "timestamp_areas_base": "2023-12-24T15:27:29Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -62,7 +62,8 @@
   "lon": 21.4233737,
   "tags": {
     "historic": "monument",
-    "name": "Гоце Делчев"
+    "name": "Гоце Делчев",
+    "name:en": "Statue of Goce Delčev"
   }
 },
 {
@@ -2555,6 +2556,7 @@
   "tags": {
     "addr:street": "Булевар Србија",
     "amenity": "place_of_worship",
+    "check_date": "2023-11-24",
     "denomination": "catholic",
     "name": "Крст",
     "religion": "christian"
@@ -3696,17 +3698,6 @@
 },
 {
   "type": "node",
-  "id": 6337100523,
-  "lat": 41.8289715,
-  "lon": 21.9562049,
-  "tags": {
-    "historic": "monument",
-    "name": "Kanda - Geoglif Sv. Nikole",
-    "website": "https://www.ancient-origins.net/news-history-archaeology/astronomical-alignment-geoglyph-republic-macedonia-020170"
-  }
-},
-{
-  "type": "node",
   "id": 6348392216,
   "lat": 41.7361643,
   "lon": 22.2020987,
@@ -4164,21 +4155,6 @@
     "opening_hours": "Mo-Sa 10:00-20:00",
     "phone": "+389075435402",
     "tourism": "museum"
-  }
-},
-{
-  "type": "node",
-  "id": 7121648908,
-  "lat": 41.1888901,
-  "lon": 22.7192011,
-  "tags": {
-    "addr:city": "Стар Дојран",
-    "addr:postcode": "1487",
-    "addr:street": "Маршал Тито",
-    "amenity": "place_of_worship",
-    "denomination": "orthodox",
-    "name": "Свети Илија",
-    "religion": "christian"
   }
 },
 {

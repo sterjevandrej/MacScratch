@@ -47,7 +47,6 @@ public class Node {
         makingToString.addFilter(optionalFilter);
         makingToString.addFilter(optionalFilter);
         makingToString.addFilter(optionalFilter);
-        makingToString.addFilter(optionalFilter);
         makingToString.addFilter(mandatoryFilter);
         makingToString.addFilter(mandatoryFilter);
         makingToString.addFilter(mandatoryFilter);
