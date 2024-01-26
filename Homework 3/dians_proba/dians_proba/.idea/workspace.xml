@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5e9f3e9e-dbb3-4808-a670-2224c751c637" name="Changes" comment="pw encripted">
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/Favorite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/FavouriteId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/Visited.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/VisitedId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/Wish.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/WishId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/exceptions/InvalidArgumentsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/exceptions/InvalidUserCredentialsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/exceptions/InvalidUsernameOrPasswordException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/exceptions/NotLoggedInException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/exceptions/PasswordsDoNotMatchException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/model/exceptions/UsernameAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/repository/FavoriteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/repository/MonumentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/repository/VisitedRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/repository/WishRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/service/FavoritesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/service/MonumentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/service/VisitedService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/service/WishService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/service/impl/FavoritesServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/service/impl/MonumentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/service/impl/VisitedServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ListsMicroservice/src/main/java/spring/listsmicroservice/service/impl/WishServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/dians_proba.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/DiansProbaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/bootstrap/DataHolder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/City.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/Favorite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/FavouriteId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/Monument.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/Visited.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/VisitedId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/Wish.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/WishId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/exceptions/InvalidArgumentsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/exceptions/InvalidUserCredentialsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/exceptions/InvalidUsernameOrPasswordException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/exceptions/NotLoggedInException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/exceptions/PasswordsDoNotMatchException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/model/exceptions/UsernameAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/repository/CityRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/repository/FavoriteRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/repository/MonumentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/repository/VisitedRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/repository/WishRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/AuthService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/CityService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/FavoritesService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/MonumentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/VisitedService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/WishService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/impl/AuthServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/impl/CityServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/impl/FavoritesServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/impl/MonumentServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/impl/VisitedServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/service/impl/WishServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/web/AboutUsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/web/AssistantController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/web/FeedbackController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/web/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/web/LocationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/web/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/web/LogoutController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/web/MapController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/web/MarkerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/web/ScratchController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dians_proba/web/SignUpController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/favourites.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/feedback.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/invalidPage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login_1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/master_template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/scratch.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/signup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/visited.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wishList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/dians_proba/DiansProbaApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../video.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2ZoSpMkP6qIZxeuD7YujLRNTFIR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.DiansProbaApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Desktop/DiAnS/MacScratch/Homework 3/dians_proba/dians_proba/pom.xml",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "application.passwordSafe",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.DiansProbaApplication">
+    <configuration name="DiansProbaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="dians_proba" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.dians_proba.DiansProbaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e9f3e9e-dbb3-4808-a670-2224c751c637" name="Changes" comment="" />
+      <created>1703087134607</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703087134607</updated>
+      <workItem from="1703087137672" duration="121000" />
+      <workItem from="1703154863729" duration="573000" />
+      <workItem from="1703198864260" duration="26000" />
+      <workItem from="1703407013285" duration="12381000" />
+      <workItem from="1703503714655" duration="1562000" />
+      <workItem from="1703505462532" duration="184000" />
+      <workItem from="1703510253893" duration="594000" />
+      <workItem from="1706275864688" duration="108000" />
+      <workItem from="1706276005984" duration="6655000" />
+    </task>
+    <task id="LOCAL-00001" summary="pw encripted">
+      <option name="closed" value="true" />
+      <created>1706282379288</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706282379288</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="pw encripted" />
+    <option name="LAST_COMMIT_MESSAGE" value="pw encripted" />
+  </component>
+</project>
