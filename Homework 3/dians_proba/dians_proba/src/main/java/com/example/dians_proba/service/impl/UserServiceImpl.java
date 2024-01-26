@@ -10,6 +10,7 @@ import com.example.dians_proba.repository.MonumentRepository;
 import com.example.dians_proba.repository.UserRepository;
 import com.example.dians_proba.service.UserService;
 import jakarta.transaction.Transactional;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 //import org.springframework.security.crypto.password.PasswordEncoder; //NOT REALLY NECESSARY1
 
@@ -18,14 +19,16 @@ import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
-    public final MonumentRepository monumentRepostory;
-    public final UserRepository userRepository;
-//    private final PasswordEncoder passwordEncoder;  //NOT REALLY NECESSARY2
 
-    public UserServiceImpl(MonumentRepository monumentRepostory, UserRepository userRepository) {
+
+    private final MonumentRepository monumentRepostory;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    public UserServiceImpl(MonumentRepository monumentRepostory, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.monumentRepostory = monumentRepostory;
         this.userRepository = userRepository;
-//        this.passwordEncoder = passwordEncoder; //NOT REALLY NECESSARY3
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -41,7 +44,7 @@ public class UserServiceImpl implements UserService {
             throw new PasswordsDoNotMatchException();
         if (this.userRepository.findByUsername(username).isPresent())
             throw new UsernameAlreadyExistsException(username);
-        User user = new User(name, surname, username, password);
+        User user = new User(name, surname, username, passwordEncoder.encode(password));
         userRepository.save(user);
     }
 
