@@ -11,5 +11,4 @@ import java.util.Optional;
 
 public interface VisitedRepository extends JpaRepository<Visited,Long> {
     List<Visited> findByUser(User user);
-    Optional<Visited> findByMonument(Monument monument);
 }

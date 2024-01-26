@@ -11,6 +11,4 @@ import java.util.Optional;
 
 public interface WishRepository extends JpaRepository<Wish, Long> {
     List<Wish> findByUser(User user);
-
-    Optional<Wish> findByMonument(Monument monument);
 }

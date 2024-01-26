@@ -1,10 +1,10 @@
-package com.example.dians_proba.repository;
+package spring.listsmicroservice.repository;
 
-import com.example.dians_proba.model.*;
 import org.springframework.data.jpa.repository.JpaRepository;
+import spring.listsmicroservice.model.Favorite;
+import spring.listsmicroservice.model.User;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface FavoriteRepository extends JpaRepository<Favorite, Long> {
     List<Favorite> findByUser(User user);
