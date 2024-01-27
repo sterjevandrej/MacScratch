@@ -1,0 +1,16 @@
+server:
+  port: ${port:9000}
+
+spring:
+  application:
+    name: LISTS-SERVICE
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://app0:8761/eureka/
+  instance:
+    hostname: app0
