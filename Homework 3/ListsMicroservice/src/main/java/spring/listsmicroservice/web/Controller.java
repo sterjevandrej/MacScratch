@@ -92,9 +92,4 @@ public class Controller {
             return ResponseEntity.status(401).body("Unauthorized");
         }
     }
-
-    @GetMapping("/all")
-    public List<Monument> listPlaces() {
-        return monumentService.listAllMonuments();
-    }
 }
