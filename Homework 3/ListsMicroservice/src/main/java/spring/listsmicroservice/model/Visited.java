@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @IdClass(VisitedId.class)
 @NoArgsConstructor
 public class Visited {
+
+    /* For storing tables of monuments by user who visited them */
     @Id
     @ManyToOne
     private User user;

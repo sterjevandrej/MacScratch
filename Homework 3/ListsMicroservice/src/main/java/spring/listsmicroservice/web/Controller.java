@@ -3,6 +3,7 @@ package spring.listsmicroservice.web;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import spring.listsmicroservice.model.Monument;
@@ -26,6 +27,8 @@ public class Controller {
         this.favoritesService = favoritesService;
     }
 
+    /*Returns all wishlist monuments for the given user if the user is logged in */
+
     @GetMapping("/wishlist")
     public List<Monument> wishlist(HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
@@ -35,14 +38,18 @@ public class Controller {
             return null;
     }
 
+    /*Returns all visited monuments for the given user if the user is logged in */
+
     @GetMapping("/visited")
-    public List<Monument> visited(Model model, HttpServletRequest request) {
+    public List<Monument> visited( Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if (user != null)
             return visitedService.getVisitedList(user.getUsername());
         else
             return null;
     }
+
+    /*Returns all favourite monuments for the given user if the user is logged in */
 
     @GetMapping("/favourites")
     public List<Monument> favourites(Model model, HttpServletRequest request) {

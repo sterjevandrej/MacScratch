@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @IdClass(FavouriteId.class)
 @NoArgsConstructor
 public class Favorite {
+    /* For storing tables of monuments by user who has them as favorite */
     @Id
     @ManyToOne
     private User user;

@@ -19,7 +19,7 @@ public class Monument {
     private String opening_hours;
     private String phone;
     private String email;
-
+    /* Latitude and longitude of the location of a monument*/
     private String lat;
     private String lon;
 

@@ -7,5 +7,6 @@ import spring.listsmicroservice.model.User;
 import java.util.List;
 
 public interface FavoriteRepository extends JpaRepository<Favorite, Long> {
+    /*Returns all favorite monuments for the given user*/
     List<Favorite> findByUser(User user);
 }

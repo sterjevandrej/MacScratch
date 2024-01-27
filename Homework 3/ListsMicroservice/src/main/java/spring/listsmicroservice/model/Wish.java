@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @IdClass(WishId.class)
 @NoArgsConstructor
 public class Wish {
+    /* For storing tables of monuments by user who has them in their wishlist */
     @Id
     @ManyToOne
     private User user;
