@@ -20,17 +20,4 @@ public class MonumentServiceImpl implements MonumentService {
         return this.monumentRepository.findAll();
     }
 
-//    @Override
-//    public Monument findMonumentByName(String name) {
-//        return this.monumentRepository.findByName(name);
-//    }
-//    @Override
-//    public List<Monument> findAllMonumentsByName(String name) {
-//        return this.monumentRepository.findMonumentsByName(name);
-//    }
-//
-//    @Override
-//    public List<Monument> findMonumentByLatitudeAndLongitude(String lat, String lon) {
-//        return this.monumentRepository.findByLatLikeAndLonLike(lat, lon);
-//    };
 }

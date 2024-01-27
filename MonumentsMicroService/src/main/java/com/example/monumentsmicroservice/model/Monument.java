@@ -20,6 +20,7 @@ public class Monument {
     private String phone;
     private String email;
 
+    /* Latitude and longitude of the location of a Monument */
     private String lat;
     private String lon;
 
