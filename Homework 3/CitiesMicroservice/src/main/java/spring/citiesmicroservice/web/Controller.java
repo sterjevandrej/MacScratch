@@ -12,7 +12,7 @@ import spring.citiesmicroservice.service.MonumentService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/cities-monuments")
 
 public class Controller {
     @Autowired
@@ -22,7 +22,7 @@ public class Controller {
 
     @GetMapping("/GetMarkers")
     public List<Monument> getMarkers() {
-        return monumentService.listAllMonumentsSine();
+        return monumentService.listAllMonuments();
     }
 
     @GetMapping("/GetCities")

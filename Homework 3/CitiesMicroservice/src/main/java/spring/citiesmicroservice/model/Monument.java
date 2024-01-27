@@ -16,12 +16,14 @@ public class Monument {
     private Long id;
     private String name;
     private String enName;
+    /* For religious objects such as churches and mosques */
     private String religion;
     private String website;
     private String opening_hours;
     private String phone;
     private String email;
 
+    /*Latitude and longitude of the location of each Monument */
     private String lat;
     private String lon;
 

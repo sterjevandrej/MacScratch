@@ -16,7 +16,7 @@ public class MonumentServiceImpl implements MonumentService {
     }
 
     @Override
-    public List<Monument> listAllMonumentsSine() {
+    public List<Monument> listAllMonuments() {
         return monumentRepository.findAll();
     }
 
@@ -30,6 +30,7 @@ public class MonumentServiceImpl implements MonumentService {
         return monumentRepository.findMonumentsByName(name);
     }
 
+    /* For finding which monuments are in the user's approximate live location */
     public List<Monument> findMonumentByLatitudeAndLongitude(String lat, String lon) {
         return monumentRepository.findByLatLikeAndLonLike(lat, lon);
     }

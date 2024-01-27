@@ -15,6 +15,7 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    /* Latitude and longitude of the location of each City */
     private String lat;
     private String lon;
 
