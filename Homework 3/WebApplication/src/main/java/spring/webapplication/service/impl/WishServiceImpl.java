@@ -24,7 +24,7 @@ public class WishServiceImpl implements WishService {
     @Override
     public void addToWishList(String username, String name) {
 
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity("http://localhost:9000/wishlist/"+name, null, String.class);
+//        ResponseEntity<String> responseEntity = restTemplate.postForEntity("http://localhost:9000/wishlist/"+name, null, String.class);
 
     }
 

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @IdClass(FavouriteId.class)
 @NoArgsConstructor
+@Table(schema = "dians-proba-mapa")
 public class Favorite {
     /* For storing tables of monuments by user who has them as favorite */
     @Id
