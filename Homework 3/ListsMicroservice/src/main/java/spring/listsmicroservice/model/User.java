@@ -12,20 +12,8 @@ import lombok.NoArgsConstructor;
 public class User {
     @Id
     private String username;
-    private String name;
-    private String surname;
 
-    private String password;
-    /*For the feedback form, where users can submit their feedback + whether they are satisfied with the app */
-    private String feedback;
-    private boolean isSatisfied;
-
-    public User(String name, String surname, String username, String password) {
-        this.name = name;
-        this.surname = surname;
+    public User(String username) {
         this.username = username;
-        this.password = password;
-        this.feedback = null;
-        this.isSatisfied = true;
     }
 }

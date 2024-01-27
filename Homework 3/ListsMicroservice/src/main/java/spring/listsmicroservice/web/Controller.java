@@ -5,12 +5,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import spring.listsmicroservice.model.Monument;
 import spring.listsmicroservice.model.User;
-import spring.listsmicroservice.service.FavoritesService;
-import spring.listsmicroservice.service.MonumentService;
-import spring.listsmicroservice.service.VisitedService;
-import spring.listsmicroservice.service.WishService;
+import spring.listsmicroservice.model.exceptions.InvalidUsernameOrPasswordException;
+import spring.listsmicroservice.service.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/list")
@@ -19,43 +18,45 @@ public class Controller {
     private final VisitedService visitedService;
     private final FavoritesService favoritesService;
     private final MonumentService monumentService;
+    private final UserService userService;
 
-    public Controller(WishService wishService, VisitedService visitedService, FavoritesService favoritesService, MonumentService monumentService) {
+    public Controller(WishService wishService, VisitedService visitedService, FavoritesService favoritesService, MonumentService monumentService, UserService userService) {
         this.wishService = wishService;
         this.visitedService = visitedService;
         this.favoritesService = favoritesService;
         this.monumentService = monumentService;
+        this.userService = userService;
     }
 
     /*Returns all wishlist monuments for the given user if the user is logged in */
 
-    @GetMapping("/wishlist")
-    public List<Monument> wishlist(HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user != null)
-            return wishService.getWishList(user.getUsername());//todo: ako e prazna listata da se prenasoci na najava vo glavniot proekt
+    @GetMapping("/wishlist/{username}")
+    public List<Monument> wishlist(@PathVariable String username) {
+        Optional<User> user = userService.findByUsername(username);
+        if (user.isPresent())
+            return wishService.getWishList(username);//todo: ako e prazna listata da se prenasoci na najava vo glavniot proekt
         else
             return null;
     }
 
     /*Returns all visited monuments for the given user if the user is logged in */
 
-    @GetMapping("/visited")
-    public List<Monument> visited(HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user != null)
-            return visitedService.getVisitedList(user.getUsername());
+    @GetMapping("/visited/{username}")
+    public List<Monument> visited(@PathVariable String username) {
+        Optional<User> user = userService.findByUsername(username);
+        if (user.isPresent())
+            return visitedService.getVisitedList(username);
         else
             return null;
     }
 
     /*Returns all favourite monuments for the given user if the user is logged in */
 
-    @GetMapping("/favourites")
-    public List<Monument> favourites(HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user != null)
-            return favoritesService.getFavoritesList(user.getUsername());
+    @GetMapping("/favourites/{username}")
+    public List<Monument> favourites(@PathVariable String username) {
+        Optional<User> user = userService.findByUsername(username);
+        if (user.isPresent())
+            return favoritesService.getFavoritesList(username);
         else
             return null;
     }
