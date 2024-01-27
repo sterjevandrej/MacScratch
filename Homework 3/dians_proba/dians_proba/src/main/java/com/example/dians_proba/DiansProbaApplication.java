@@ -14,7 +14,7 @@ public class DiansProbaApplication {
 	}
 
 	@Bean
-	public PasswordEncoder passwordEncoder(){
+	PasswordEncoder passwordEncoder(){
 		return new BCryptPasswordEncoder();
 	}
 }

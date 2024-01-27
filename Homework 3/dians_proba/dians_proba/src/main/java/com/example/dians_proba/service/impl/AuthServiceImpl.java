@@ -3,6 +3,7 @@ package com.example.dians_proba.service.impl;
 import com.example.dians_proba.model.User;
 import com.example.dians_proba.model.exceptions.InvalidArgumentsException;
 import com.example.dians_proba.model.exceptions.InvalidUserCredentialsException;
+import com.example.dians_proba.model.exceptions.InvalidUsernameOrPasswordException;
 import com.example.dians_proba.repository.UserRepository;
 import com.example.dians_proba.service.AuthService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,8 +24,14 @@ public class AuthServiceImpl implements AuthService {
         if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
             throw new InvalidArgumentsException();
         }
-        return userRepository.findByUsernameAndPassword(username, passwordEncoder.encode(password)
-        ).orElseThrow(InvalidUserCredentialsException::new);
+//        return userRepository.findByUsernameAndPassword(username, passwordEncoder.encode(password)
+//        ).orElseThrow(InvalidUserCredentialsException::new);
+        User user = userRepository.findByUsername(username).orElseThrow(InvalidUsernameOrPasswordException::new);
+        String pw=user.getPassword();
+        if (passwordEncoder.matches(password, pw)) {
+            return user;
+        }
+        return null;
     }
 
 }

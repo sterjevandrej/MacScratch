@@ -3,6 +3,7 @@ package com.example.dians_proba.web;
 import com.example.dians_proba.model.Monument;
 import com.example.dians_proba.model.User;
 import com.example.dians_proba.model.exceptions.InvalidUserCredentialsException;
+import com.example.dians_proba.model.exceptions.InvalidUsernameOrPasswordException;
 import com.example.dians_proba.service.AuthService;
 import com.example.dians_proba.service.MonumentService;
 import com.example.dians_proba.service.VisitedService;
@@ -43,6 +44,12 @@ public class LoginController {
 //            System.out.println("Longitude: " + longitude);
             user = this.authService.login(request.getParameter("username"),
                     request.getParameter("password"));
+            if(user == null) {
+                model.addAttribute("hasError", true);
+                model.addAttribute("error", "Invalid Username Or Password! Please try again.");
+                model.addAttribute("bodyContent", "login_1");
+                return "master_template";
+            }
             request.getSession().setAttribute("user", user);
 
 //            user = (User) request.getSession().getAttribute("user");
@@ -58,7 +65,7 @@ public class LoginController {
 //                    .forEach(monument -> visitedService.addToVisitedList(request.getParameter("username"), monument.getName()));
 
             return "redirect:/home";
-        } catch (InvalidUserCredentialsException exception) {
+        } catch (InvalidUserCredentialsException | InvalidUsernameOrPasswordException exception) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", exception.getMessage());
             model.addAttribute("bodyContent", "login_1");
